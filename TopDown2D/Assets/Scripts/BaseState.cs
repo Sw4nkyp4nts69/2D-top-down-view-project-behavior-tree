@@ -5,7 +5,6 @@ using UnityEngine;
 public class BaseState
 {
     public string name = "";
-
     protected StateMachine stateMachine;
 
     public BaseState(string name, StateMachine stateMachine)
@@ -14,7 +13,9 @@ public class BaseState
         this.stateMachine = stateMachine;
     }
 
-    public virtual void Enter() { }
+    public virtual void Enter() {
+        Debug.Log("Entering state: " + this.name);
+    }
     public virtual void UpdateLogic() { }
     public virtual void UpdatePhysics() { }
     public virtual void Exit() { }
