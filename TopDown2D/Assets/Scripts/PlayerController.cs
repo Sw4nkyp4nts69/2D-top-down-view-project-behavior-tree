@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
+    bool canMove = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,36 +33,39 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(movementInput != Vector2.zero)
+        if (canMove)
         {
-            bool succes = TryMove(movementInput);
-
-            if(!succes)
+            if (movementInput != Vector2.zero)
             {
-                succes = TryMove(new Vector2(movementInput.x, 0));              
-            }
+                bool succes = TryMove(movementInput);
 
-            if (!succes)
+                if (!succes)
+                {
+                    succes = TryMove(new Vector2(movementInput.x, 0));
+                }
+
+                if (!succes)
+                {
+                    succes = TryMove(new Vector2(0, movementInput.y));
+                }
+
+
+
+                animator.SetBool("isMoving", succes);
+            }
+            else
             {
-                succes = TryMove(new Vector2(0, movementInput.y));
+                animator.SetBool("isMoving", false);
             }
+            if (movementInput.x < 0)
+            {
+                spriteRenderer.flipX = true;
 
-
-
-            animator.SetBool("isMoving", succes);
-        }
-        else
-        {
-            animator.SetBool("isMoving", false); 
-        }
-        if(movementInput.x < 0)
-        {
-            spriteRenderer.flipX = true;
-
-        }
-        else if (movementInput.x > 0)
-        {
-            spriteRenderer.flipX = false;
+            }
+            else if (movementInput.x > 0)
+            {
+                spriteRenderer.flipX = false;
+            }
         }
 
     }
@@ -97,5 +102,15 @@ public class PlayerController : MonoBehaviour
         animator.SetTrigger("swordAttack");
         print("Fire pressed");
     }
-   
+
+    public void LockMovement()
+    {
+        canMove = false;
+    }
+
+    public void UnLockMovement()
+    {
+        canMove = true;
+    }
+
 }
