@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour
 
     public ContactFilter2D movementFilter;
 
+    public SwordAttack swordAttack;
+
     Vector2 movementInput;
 
     SpriteRenderer spriteRenderer;
@@ -60,11 +62,12 @@ public class PlayerController : MonoBehaviour
             if (movementInput.x < 0)
             {
                 spriteRenderer.flipX = true;
-
+                //swordAttack.attackDirection = SwordAttack.AttackDirection.left;
             }
             else if (movementInput.x > 0)
             {
                 spriteRenderer.flipX = false;
+                //swordAttack.attackDirection = SwordAttack.AttackDirection.right;
             }
         }
 
@@ -101,6 +104,21 @@ public class PlayerController : MonoBehaviour
     {
         animator.SetTrigger("swordAttack");
         print("Fire pressed");
+    }
+
+    public void SwordAttack()
+    {
+        LockMovement();
+        
+        if(spriteRenderer.flipX == true)
+        {
+            swordAttack.AttackLeft();
+        }
+        else
+        {
+            swordAttack.AttackRight();
+        }
+       
     }
 
     public void LockMovement()
