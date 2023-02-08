@@ -52,8 +52,8 @@ public class Idle : BaseState
 
         if (Vector2.Distance(transform.position, player.transform.position) < 0.3f)
         {
-            Debug.Log("time to change state...");
-
+            Debug.Log("time to change state to chase");
+            stateMachine.ChangeState(((EnemySM)stateMachine).st_chase);
         }
     }
 

@@ -23,6 +23,7 @@ public class Chase : BaseState
     public override void Enter()
     {
         base.Enter();
+        Debug.Log("The state has been changed");
     }
 
 
@@ -31,10 +32,10 @@ public class Chase : BaseState
     {
         base.UpdateLogic();
 
-        if (Vector2.Distance(transform.position, player.transform.position) < 0.3f)
+        if (Vector2.Distance(transform.position, player.transform.position) < 0.6f)
         {
-            Debug.Log("time to change state...");
-
+            Debug.Log("time to change state....");
+            player = GameObject.FindGameObjectWithTag("Player");
         }
     }
 
