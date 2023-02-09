@@ -35,16 +35,17 @@ public class Chase : BaseState
         if (Vector2.Distance(transform.position, player.transform.position) < 0.6f)
         {
             Debug.Log("time to change state....");
-            player = GameObject.FindGameObjectWithTag("Player");
+            
+            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         }
     }
 
     public override void UpdatePhysics()
     {
         base.UpdatePhysics();
-        
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-        
+
+        player = GameObject.FindGameObjectWithTag("Player");
+
     }
 
     public override void Exit()
