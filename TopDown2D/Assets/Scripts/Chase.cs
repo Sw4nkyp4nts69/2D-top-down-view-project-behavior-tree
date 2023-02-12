@@ -23,7 +23,8 @@ public class Chase : BaseState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("The state has been changed");
+        Debug.Log("The state has been changed from idle to chase");
+        ((EnemySM)stateMachine).spriteRenderer.color = Color.black;
     }
 
 
@@ -32,18 +33,19 @@ public class Chase : BaseState
     {
         base.UpdateLogic();
 
-        if (Vector2.Distance(transform.position, player.transform.position) < 0.6f)
+        if (Vector2.Distance(transform.position, player.transform.position) < 0.2f)
         {
             Debug.Log("time to change state....");
             
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            
+            stateMachine.ChangeState(((EnemySM)stateMachine).st_enemyAttack);
         }
     }
 
     public override void UpdatePhysics()
     {
         base.UpdatePhysics();
-
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
         player = GameObject.FindGameObjectWithTag("Player");
 
     }

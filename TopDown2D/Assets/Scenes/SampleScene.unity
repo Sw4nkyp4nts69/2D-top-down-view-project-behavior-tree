@@ -4623,6 +4623,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3233388006678601063, guid: 023e220247ca2d04ba419966ac48b483, type: 3}
   m_PrefabInstance: {fileID: 6484335645304605977}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1399982269 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1745696862477885582, guid: 023e220247ca2d04ba419966ac48b483, type: 3}
+  m_PrefabInstance: {fileID: 6484335645304605977}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &30761798587832132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4703,6 +4708,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 774525675}
     m_Modifications:
+    - target: {fileID: 153950659952578040, guid: 023e220247ca2d04ba419966ac48b483, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1399982269}
+    - target: {fileID: 1745696862477885582, guid: 023e220247ca2d04ba419966ac48b483, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745696862477885582, guid: 023e220247ca2d04ba419966ac48b483, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1745696862477885582, guid: 023e220247ca2d04ba419966ac48b483, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1866974088357284734, guid: 023e220247ca2d04ba419966ac48b483, type: 3}
       propertyPath: m_Name
       value: Slime

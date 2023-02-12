@@ -33,6 +33,7 @@ public class Idle : BaseState
     public override void Enter()
     {
         base.Enter();
+        ((EnemySM)stateMachine).spriteRenderer.color = Color.white;
     }
 
 

@@ -6,9 +6,11 @@ public class EnemySM : StateMachine
 {
     //[HideInInspector]
     [HideInInspector]
-    private Idle st_idle; // IDLE STATE
+    public Idle st_idle; // IDLE STATE
     [HideInInspector]
     public Chase st_chase; // CHASE STATE
+    public EnemyAttack st_enemyAttack;
+    public SpriteRenderer spriteRenderer;
 
     public void Awake()
     {
