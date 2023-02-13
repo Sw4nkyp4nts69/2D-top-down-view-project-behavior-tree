@@ -168,6 +168,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f82d702b7c322a844935344489ecfbf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  st_idle:
+    name: 
+    speed: 0
+    transform: {fileID: 0}
+  st_chase:
+    name: 
+    speed: 0
+    transform: {fileID: 0}
+  st_enemyAttack:
+    name: 
+    speed: 0
+    transform: {fileID: 0}
+  spriteRenderer: {fileID: 1745696862477885582}
 --- !u!114 &1633502440863613375
 MonoBehaviour:
   m_ObjectHideFlags: 0

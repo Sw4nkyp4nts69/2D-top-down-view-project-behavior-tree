@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Idle : BaseState
 {
-    private GameObject[] waypoint = new GameObject[2];
+    private GameObject[] waypoint = new GameObject[4];
     // public Transform[] dingo = new Transform[2];
     public float speed = 0.6f;
     GameObject player;
@@ -14,6 +14,8 @@ public class Idle : BaseState
 
     GameObject wp1;
     GameObject wp2;
+    GameObject wp3;
+    GameObject wp4;
 
     public Idle(EnemySM stateMachine) : base("Idle", stateMachine)
     {
@@ -24,10 +26,16 @@ public class Idle : BaseState
 
         wp1 = new GameObject();
         wp2 = new GameObject();
-        wp1.transform.position = new Vector3(0.379f, 0.005f, 0);
-        wp2.transform.position = new Vector3(1.62f, 0.092f, 0);
+        wp3 = new GameObject();
+        wp4 = new GameObject();
+        wp1.transform.position = new Vector3(0.185f, 0.459f, 0);
+        wp2.transform.position = new Vector3(1.4f, 0.459f, 0);
+        wp3.transform.position = new Vector3(1.4f, -0.153f, 0);
+        wp4.transform.position = new Vector3(0.185f, -0.153f, 0);
         waypoint[0] = wp1;
         waypoint[1] = wp2;
+        waypoint[2] = wp3;
+        waypoint[3] = wp4;
     }
 
     public override void Enter()
@@ -51,7 +59,7 @@ public class Idle : BaseState
             }
         }
 
-        if (Vector2.Distance(transform.position, player.transform.position) < 0.3f)
+        if (Vector2.Distance(transform.position, player.transform.position) < 1f)
         {
             Debug.Log("time to change state to chase");
             stateMachine.ChangeState(((EnemySM)stateMachine).st_chase);

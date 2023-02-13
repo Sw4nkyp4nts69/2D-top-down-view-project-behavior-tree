@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class EnemyAttack : BaseState
 {
-    public float speed = 0.6f;
+    public float speed = 0.4f;
     GameObject player;
     public Transform transform;
     
@@ -34,11 +34,10 @@ public class EnemyAttack : BaseState
     {
         base.UpdateLogic();
 
-        if (Vector2.Distance(transform.position, player.transform.position) > 0.6f)
+        if (Vector2.Distance(transform.position, player.transform.position) > 0.3f)
         {
-            Debug.Log("time to change state....");
-            transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-            stateMachine.ChangeState(((EnemySM)stateMachine).st_idle);
+            Debug.Log("time to change state to Idle");
+            stateMachine.ChangeState(((EnemySM)stateMachine).st_chase);
         }
     }
 
@@ -46,8 +45,7 @@ public class EnemyAttack : BaseState
     {
         base.UpdatePhysics();
 
-        player = GameObject.FindGameObjectWithTag("Player");
-
+        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
     public override void Exit()

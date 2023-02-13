@@ -33,12 +33,19 @@ public class Chase : BaseState
     {
         base.UpdateLogic();
 
-        if (Vector2.Distance(transform.position, player.transform.position) < 0.2f)
+        if (Vector2.Distance(transform.position, player.transform.position) < 0.3f)
         {
-            Debug.Log("time to change state....");
+            Debug.Log("time to change state to attack");
             
             
             stateMachine.ChangeState(((EnemySM)stateMachine).st_enemyAttack);
+        }
+
+        if (Vector2.Distance(transform.position, player.transform.position) > 1f)
+        {
+            Debug.Log("time to change state to Idle");
+
+            stateMachine.ChangeState(((EnemySM)stateMachine).st_idle);
         }
     }
 
@@ -46,7 +53,6 @@ public class Chase : BaseState
     {
         base.UpdatePhysics();
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-        player = GameObject.FindGameObjectWithTag("Player");
 
     }
 

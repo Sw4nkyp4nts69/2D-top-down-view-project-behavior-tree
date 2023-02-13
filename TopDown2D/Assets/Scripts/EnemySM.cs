@@ -15,6 +15,8 @@ public class EnemySM : StateMachine
     public void Awake()
     {
         st_idle = new Idle(this);
+        st_chase = new Chase(this);
+        st_enemyAttack = new EnemyAttack(this);
     }
 
     public Transform GetTransform()
