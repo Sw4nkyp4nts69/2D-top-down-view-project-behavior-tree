@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5431845969201928719}
   - component: {fileID: 7725082970947574192}
   - component: {fileID: 4374838064099499033}
-  - component: {fileID: 153950659952578040}
+  - component: {fileID: 951230931960654829}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -155,7 +155,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &153950659952578040
+--- !u!114 &951230931960654829
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,19 +164,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1866974088357284734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f82d702b7c322a844935344489ecfbf9, type: 3}
+  m_Script: {fileID: 11500000, guid: bd6ab84509731e54c9bf04bd9daad639, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  st_idle:
-    name: 
-    speed: 0
-    transform: {fileID: 0}
-  st_chase:
-    name: 
-    speed: 0
-    transform: {fileID: 0}
-  st_enemyAttack:
-    name: 
-    speed: 0
-    transform: {fileID: 0}
-  spriteRenderer: {fileID: 1745696862477885582}
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
